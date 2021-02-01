@@ -152,6 +152,11 @@ p.copyright-agileinfo {
     font-weight: 300;
 }
 
+p.copyright-agileinfo img{
+    width: 30px;
+    filter: grayscale(1);
+}
+
 footer p a {
     display: inline-block;
     color: #fff;
