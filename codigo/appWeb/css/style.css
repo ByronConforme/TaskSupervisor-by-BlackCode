@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #EDF2F4
+    background: #c8d8df
 }
 h1 {
     margin: 0;
@@ -53,7 +53,7 @@ p.w3l-register-p {
 }
 
 .w3l-login-form {
-    background: #357266;
+    background: #3e5592;
     max-width: 500px;
     margin: 0 auto;
     padding: 3em;
@@ -148,7 +148,7 @@ a {
 p.copyright-agileinfo {
     font-size: 15px;
     letter-spacing: 2px;
-    color: #fff;
+    color: rgb(0, 0, 0);
     font-weight: 300;
 }
 
