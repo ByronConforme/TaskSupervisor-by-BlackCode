@@ -3,6 +3,16 @@ body {
     padding: 0;
     background: #c8d8df
 }
+.logoTS{
+    width: 100%;
+}
+.logoTS img{
+    display: table;
+    margin: 0 auto;
+    width: 300px;
+    letter-spacing: 2px;
+    padding: 30px;
+}
 h1 {
     margin: 0;
     color: #000;
@@ -15,12 +25,12 @@ h1 {
 
 h2 {
     margin: 0;
-    color: #2B2D42;
+    color: #ffffff;
     font-size: 25px;
     font-weight: 400;
     text-align: center;
     letter-spacing: 1px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 
 #login-error-msg-holder {
