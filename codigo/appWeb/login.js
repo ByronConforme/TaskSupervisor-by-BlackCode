@@ -15,3 +15,7 @@ loginButton.addEventListener("click", (e) => {
         document.getElementById("login-error-msg").style.display = "block";
     }
 })
+
+function datosAdmin(){
+    alert("DATOS DE CONTACTO DE SU ADMINISTRADOR\nNombre: Admin.\nCargo: Administrador de sistemas.\nCelular: 0987654321\nCorreo: admin@correo.com")
+}
