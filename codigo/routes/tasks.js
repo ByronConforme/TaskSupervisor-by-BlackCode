@@ -23,4 +23,9 @@ router.post('/add', async (req, res)=>{
     res.send('Usuario almacenado en la base de datos.');
 });
 
+router.get('/', async (req, res) => {
+    const usuarios = await pool.query('SELECT * FROM usuarios');
+    res.render('tasks/list', {usuarios});
+});
+
 module.exports = router;
