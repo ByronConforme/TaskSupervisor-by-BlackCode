@@ -1,0 +1,39 @@
+<div>
+    <div>
+        <div>
+            <div>
+                <form action="/tasks/edit/{{usuario.id}}" method="POST">
+                    <div>
+                        <input type="text" value="{{usuario.cedula}}" name="cedula" placeholder="Cédula" autofocus>
+                    </div>
+                    <div>
+                        <input type="text" value="{{usuario.nombre}}" name="nombre" placeholder="Nombre">
+                    </div>
+                    <div>
+                        <input type="text" value="{{usuario.apellido}}" name="apellido" placeholder="Apellido">
+                    </div>
+                    <div>
+                        <input type="text" value="{{usuario.correo_electronico}}" name="correo_electronico" placeholder="Correo electrónico">
+                    </div>
+                    <div>
+                        <input type="text" value="{{usuario.celular}}" name="celular" placeholder="Celular">
+                    </div>
+                    <div>
+                        <select name="rol_id">
+                            <option value="1">Supervisor</option>
+                            <option value="2" selected>Empleado</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="date" value="{{usuario.fecha_nacimiento}}" name="fecha_nacimiento">
+                    </div>
+                    <div>
+                        <button>
+                            Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>  

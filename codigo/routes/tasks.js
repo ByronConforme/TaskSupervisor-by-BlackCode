@@ -20,12 +20,42 @@ router.post('/add', async (req, res)=>{
     };
     console.log(nuevoUsuario);
     await pool.query('INSERT INTO usuarios set ?', [nuevoUsuario]);
-    res.send('Usuario almacenado en la base de datos.');
+    res.redirect('/tasks');
 });
 
 router.get('/', async (req, res) => {
-    const usuarios = await pool.query('SELECT * FROM usuarios');
+    const usuarios = await pool.query('SELECT * FROM usuarios WHERE estado = "A"');
     res.render('tasks/list', {usuarios});
+});
+
+router.get('/delete/:id', async (req, res) => {
+    const { id } =req.params;
+    await pool.query("UPDATE usuarios SET estado = 'I' WHERE id = ?", [id]);
+    res.redirect('/tasks');
+});
+
+router.get('/edit/:id', async (req, res) => {
+    const { id } =req.params;
+    const usuarios = await pool.query("SELECT * FROM usuarios WHERE id = ?", [id]);
+    console.log(usuarios);
+    res.render('tasks/edit', {usuario: usuarios[0]});
+});
+
+router.post('/edit/:id', async (req, res)=>{
+    const { id } =req.params;
+    const { cedula, nombre, apellido, correo_electronico, celular, rol_id, fecha_nacimiento } = req.body;
+    const nuevoUsuario = {
+        cedula,
+        nombre,
+        apellido,
+        correo_electronico,
+        celular,
+        rol_id,
+        fecha_nacimiento
+    };
+    console.log(nuevoUsuario);
+    await pool.query('UPDATE usuarios set ? WHERE id = ?', [nuevoUsuario, id]);
+    res.redirect('/tasks');
 });
 
 module.exports = router;
