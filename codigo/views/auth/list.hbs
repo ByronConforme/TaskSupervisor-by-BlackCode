@@ -2,12 +2,12 @@
     <table border="1">
         <tr>
             <th>Id</th>
-            <th>Titulo</th>
-            <th>Descripción</th>
-            <th>Duración</th>
-            <th>Tipo</th>
-            <th>Creada hace</th>
-            <th>Observación</th>
+            <th>Cedula</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Nacio hace</th>
+            <th>Estado</th>
             <th>Editar</th>
             <th>Borrar</th>
         </tr>
@@ -17,28 +17,28 @@
                     <h4>{{id}}</h4>
                 </td>
                 <td>
-                    <h4>{{titulo}}</h4>
+                    <h4>{{cedula}}</h4>
                 </td>
                 <td>
-                    <h4>{{descripcion}}</h4>
+                    <h4>{{nombre}}</h4>
                 </td>
                 <td>
-                    <h4>{{tiempo_tarea}}</h4>
+                    <h4>{{apellido}}</h4>
                 </td>
                 <td>
-                    <h4>{{tipo_tarea}}</h4>
+                    <h4>{{correo_electronico}}</h4>
                 </td>
                 <td>
-                    <h4>{{timeago fecha_hora_gen}}</h4>
+                    <h4>{{timeago fecha_nacimiento}}</h4>
                 </td>
                 <td>
-                    <h4>{{observacion}}</h4>
+                    <h4>{{estado}}</h4>
                 </td>
                 <td>
-                    <a href="/tasks/edit/{{id}}">Editar</a>
+                    <a href="/auth/edit/{{id}}">Editar</a>
                 </td>
                 <td>
-                    <a href="/tasks/delete/{{id}}">Borrar</a>
+                    <a href="/auth/delete/{{id}}">Borrar</a>
                 </td>
             </tr>
         {{/each}}

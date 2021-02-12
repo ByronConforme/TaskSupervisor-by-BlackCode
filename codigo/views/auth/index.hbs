@@ -3,23 +3,20 @@
 </div>
 <div class=" w3l-login-form">
     <h2>Iniciar Sesión</h2>
-    <!--<div id="login-error-msg-holder">
-        <p id="login-error-msg">Usuario o contraseña incorrecto.</span></p>
-    </div>-->
-    <form id="login-form">
+    <form id="login-form" method="POST" action="index">
 
         <div class=" w3l-form-group">
             <label>Usuario:</label>
             <div class="group">
                 <i class="fas fa-user"></i>
-                <input id="cedula" type="text" class="form-control" placeholder="Cédula de usuario"/>
+                <input id="cedula" name="cedula" type="text" class="form-control" placeholder="Cédula de usuario"/>
             </div>
         </div>
         <div class=" w3l-form-group">
             <label>Contraseña:</label>
             <div class="group">
                 <i class="fas fa-unlock"></i>
-                <input id="password" type="password" class="form-control" placeholder="Contraseña"/>
+                <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña"/>
             </div>
         </div>
         <div class="forgot">

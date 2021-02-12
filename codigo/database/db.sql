@@ -31,10 +31,11 @@ CREATE TABLE tareas(
     descripcion VARCHAR(100) NOT NULL,
     tiempo_tarea TIME NOT NULL,
     tipo_tarea CHAR(1) NOT NULL,
-    fecha_hora_gen DATETIME NOT NULL,
-    fecha_hora_eje DATETIME NOT NULL,
+    fecha_hora_gen timestamp NOT NULL DEFAULT current_timestamp,
+    fecha_hora_eje DATETIME NULL,
     observacion VARCHAR(250) NULL,
-    estado CHAR(1) NOT NULL DEFAULT 'A'
+    estado CHAR(1) NOT NULL DEFAULT 'A',
+    CONSTRAINT fk_ced_usuario FOREIGN KEY (ced_usuario) REFERENCES usuarios(id)
 );
 
 -- Asignación de la llave primaria y el auto incremento de 1 al campo id
