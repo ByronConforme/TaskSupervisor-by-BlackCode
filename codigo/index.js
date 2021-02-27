@@ -9,7 +9,9 @@ const passport = require('passport');
 
 const { database } = require('./keys');
 
-//Inicializaciones
+/*Inicializaciones
+Vamos a inicializar la conexion a la  base de datos
+*/
 const app = express();
 require('./lib/passport');
 
