@@ -16,7 +16,12 @@ router.post('/add', passport.authenticate('local.signup',{
 }));
 
 router.get('/profile', (req, res)=>{
-    res.send('Perfil del usuario');
+    res.render("profile");
+});
+
+router.get('/logout', (req, res) => {
+    req.logOut();
+    res.redirect('/index');
 });
 
 router.get('/index', (req, res)=>{

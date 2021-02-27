@@ -1,8 +1,11 @@
 <nav id="navegador">
+    {{#if user}}
     <a>TaskSupervisor</a>
     <ul>
         <li><a href="#">Usuarios</a></li>
         <li><a href="#">Tareas</a></li>
         <li><a href="#">Roles</a></li>
+        <li><a href="/logout">Cerrar sesión</a></li>
     </ul>
+    {{/if}}
 </nav>
