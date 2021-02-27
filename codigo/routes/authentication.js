@@ -1,34 +1,36 @@
 const { O_RDONLY } = require('constants');
 const express = require('express');
 const router = express.Router();
+
 const passport = require('passport'); 
+const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 
 const pool = require('../database');
 
-router.get('/add', (req, res)=>{
+router.get('/add', isLoggedIn, (req, res)=>{
     res.render('auth/add');
 });
 
-router.post('/add', passport.authenticate('local.signup',{
+router.post('/add', isLoggedIn, passport.authenticate('local.signup',{
         successRedirect: '/profile',
         failureRedirect: '/add',
         failureFlash: true
 }));
 
-router.get('/profile', (req, res)=>{
+router.get('/profile', isLoggedIn, (req, res)=>{
     res.render("profile");
 });
 
-router.get('/logout', (req, res) => {
+router.get('/logout', isLoggedIn, (req, res) => {
     req.logOut();
     res.redirect('/index');
 });
 
-router.get('/index', (req, res)=>{
+router.get('/index', isNotLoggedIn, (req, res)=>{
     res.render('auth/index');
 });
 
-router.post('/index', (req, res, next)=>{
+router.post('/index', isNotLoggedIn, (req, res, next)=>{
     passport.authenticate('local.signin',{
         successRedirect: '/profile',
         failureRedirect: '/index',
@@ -36,26 +38,26 @@ router.post('/index', (req, res, next)=>{
     })(req, res, next);
 });
 
-router.get('/', async (req, res) => {
+router.get('/', isLoggedIn, async (req, res) => {
     const usuarios = await pool.query('SELECT * FROM usuarios WHERE estado = "A"');
     res.render('auth/list', {usuarios});
 });
 
-router.get('/delete/:id', async (req, res) => {
+router.get('/delete/:id', isLoggedIn, async (req, res) => {
     const { id } =req.params;
     await pool.query("UPDATE usuarios SET estado = 'I' WHERE id = ?", [id]);
     req.flash('success', 'Usuario eliminado exitosamente.');
     res.redirect('/auth');
 });
 
-router.get('/edit/:id', async (req, res) => {
+router.get('/edit/:id', isLoggedIn, async (req, res) => {
     const { id } =req.params;
     const usuarios = await pool.query("SELECT * FROM usuarios WHERE id = ?", [id]);
     console.log(usuarios);
     res.render('auth/edit', {usuario: usuarios[0]});
 });
 
-router.post('/edit/:id', async (req, res)=>{
+router.post('/edit/:id', isLoggedIn, async (req, res)=>{
     const { id } =req.params;
     const { cedula, nombre, apellido, correo_electronico, celular, rol_id, fecha_nacimiento } = req.body;
     const nuevoUsuario = {
