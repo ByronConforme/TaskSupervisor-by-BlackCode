@@ -1,7 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
 const exphbs = require('express-handlebars');
-const path = require('path');
+const path = require('path');  //da las direcciones de donde estan las carpetas.
 const flash = require('connect-flash');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session');
@@ -16,13 +16,13 @@ const app = express();
 require('./lib/passport');
 
 /*Configuraciones
-Colocamos las configuraciones que necesita el servidor.
+Colocamos las configuraciones que necesita el servidor de express.
 */
-app.set('port', process.env.PORT || 4000);
-app.set('views', path.join(__dirname, 'views'));
+app.set('port', process.env.PORT || 4000); //Definimos un puerto
+app.set('views', path.join(__dirname, 'views'));    //Establece donde esta la carpeta views, la constante devuelve la direccion del archivo que se esta ejecutando
 app.engine('.hbs', exphbs({
-    defaultLayout: 'main',
-    layoutsDir: path.join(app.get('views'), 'layouts'),
+    defaultLayout: 'main',  //Nombre de la plantilla principal
+    layoutsDir: path.join(app.get('views'), 'layouts'), //Esta configuracion significa que layout esta justo dentro de la carpeta views
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs',
     helpers: require('./lib/handlebars')
