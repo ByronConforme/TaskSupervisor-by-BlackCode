@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const passport = require('passport'); 
-const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
+const { isLoggedIn, isNotLoggedIn, hasPermission } = require('../lib/auth');
 
 const pool = require('../database');
 
@@ -38,7 +38,7 @@ router.post('/index', isNotLoggedIn, (req, res, next)=>{
     })(req, res, next);
 });
 
-router.get('/', isLoggedIn, async (req, res) => {
+router.get('/', isLoggedIn, hasPermission, async (req, res) => {
     const usuarios = await pool.query('SELECT * FROM usuarios WHERE estado = "A"');
     res.render('auth/list', {usuarios});
 });

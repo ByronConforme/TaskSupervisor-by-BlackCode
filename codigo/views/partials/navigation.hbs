@@ -1,9 +1,15 @@
 <nav id="navegador">
+    
     {{#if user}}
-    <a>TaskSupervisor</a>
+    <div>
+        <a href="/index">TaskSupervisor</a>
+        <a href="/profile">{{user.nombre}} {{user.apellido}}</a>
+    </div>
     <ul>
-        <li><a href="#">Usuarios</a></li>
-        <li><a href="#">Tareas</a></li>
+        {{#ifSmaller user.rol_id 2}}
+        <li><a href="/auth">Usuarios</a></li>
+        {{/ifSmaller}}
+        <li><a href="/tasks">Tareas</a></li>
         <li><a href="#">Roles</a></li>
         <li><a href="/logout">Cerrar sesión</a></li>
     </ul>

@@ -4,19 +4,19 @@
             <div>
                 <form action="/auth/edit/{{usuario.id}}" method="POST">
                     <div>
-                        <input type="text" value="{{usuario.cedula}}" name="cedula" placeholder="Cédula" autofocus>
+                        <input type="text" value="{{usuario.cedula}}" name="cedula" placeholder="Cédula" autofocus required>
                     </div>
                     <div>
-                        <input type="text" value="{{usuario.nombre}}" name="nombre" placeholder="Nombre">
+                        <input type="text" value="{{usuario.nombre}}" name="nombre" placeholder="Nombre" required>
                     </div>
                     <div>
-                        <input type="text" value="{{usuario.apellido}}" name="apellido" placeholder="Apellido">
+                        <input type="text" value="{{usuario.apellido}}" name="apellido" placeholder="Apellido" required>
                     </div>
                     <div>
-                        <input type="text" value="{{usuario.correo_electronico}}" name="correo_electronico" placeholder="Correo electrónico">
+                        <input type="email" value="{{usuario.correo_electronico}}" name="correo_electronico" placeholder="Correo electrónico" required>
                     </div>
                     <div>
-                        <input type="text" value="{{usuario.celular}}" name="celular" placeholder="Celular">
+                        <input type="text" value="{{usuario.celular}}" name="celular" placeholder="Celular" required>
                     </div>
                     <div>
                         <select name="rol_id">
@@ -25,7 +25,7 @@
                         </select>
                     </div>
                     <div>
-                        <input type="date" value="{{usuario.fecha_nacimiento}}" name="fecha_nacimiento">
+                        <input type="date" value="{{usuario.fecha_nacimiento}}" name="fecha_nacimiento" required>
                     </div>
                     <div>
                         <button>

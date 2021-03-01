@@ -4,22 +4,22 @@
             <div>
                 <form action="/auth/add" method="POST">
                     <div>
-                        <input type="text" name="cedula" placeholder="Cédula" autofocus>
+                        <input type="text" name="cedula" placeholder="Cédula" autofocus required>
                     </div>
                     <div>
-                        <input type="text" name="nombre" placeholder="Nombre">
+                        <input type="text" name="nombre" placeholder="Nombre" required>
                     </div>
                     <div>
-                        <input type="password" name="password" placeholder="Contraseña">
+                        <input type="password" name="password" placeholder="Contraseña" required>
                     </div>
                     <div>
-                        <input type="text" name="apellido" placeholder="Apellido">
+                        <input type="text" name="apellido" placeholder="Apellido" required>
                     </div>
                     <div>
-                        <input type="text" name="correo_electronico" placeholder="Correo electrónico">
+                        <input type="email" name="correo_electronico" placeholder="Correo electrónico" required>
                     </div>
                     <div>
-                        <input type="text" name="celular" placeholder="Celular">
+                        <input type="text" name="celular" placeholder="Celular" required>
                     </div>
                     <div>
                         <select name="rol_id">
@@ -28,7 +28,7 @@
                         </select>
                     </div>
                     <div>
-                        <input type="date" name="fecha_nacimiento">
+                        <input type="date" name="fecha_nacimiento" required>
                     </div>
                     <div>
                         <button>

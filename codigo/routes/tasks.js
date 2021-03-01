@@ -3,12 +3,14 @@ const router = express.Router();
 
 const pool = require('../database');
 
-router.get('/add', (req, res)=>{
+const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
+
+router.get('/add', isLoggedIn, (req, res)=>{
     res.render('tasks/add');
 });
 
-router.post('/add', async (req, res)=>{
-    const ced_usuario = "0951665405";
+router.post('/add', isLoggedIn, async (req, res)=>{
+    const ced_usuario = user.cedula;
     const { titulo, descripcion, tiempo_tarea, tipo_tarea, observacion } = req.body;
     const nuevaTarea = {
         ced_usuario,
@@ -24,10 +26,10 @@ router.post('/add', async (req, res)=>{
     res.redirect('/tasks');
 });
 
-router.get('/', async (req, res) => {
-    ced_usuario = "0951665405";
-    const usuarios = await pool.query('SELECT * FROM tareas WHERE ced_usuario = ?', ced_usuario);
-    res.render('tasks/list', {usuarios});
+router.get('/', isLoggedIn, async (req, res) => {
+    ced_usuario = req.user.cedula;
+    const tareas = await pool.query('SELECT * FROM tareas WHERE ced_usuario = ?', ced_usuario);
+    res.render('tasks/list', {tareas});
 });
 //FALTA EDITAR Y ELIMINAR TAREAS
 router.get('/delete/:id', async (req, res) => {
