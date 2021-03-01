@@ -68,7 +68,7 @@ app.use('/auth', require('./routes/authentication'));
 /*Public
 Colocamos una carpeta donde vamos a colocar todo el codigo que el navegador pueda acceder.
 */
-app.use(express.static(path.join(__dirname, 'public'))); // Este metodo utiliza
+app.use(express.static(path.join(__dirname, 'public'))); // Este metodo recibe direcciones.
 
 /*Iniciar el servidor
 Utilizamos esto para empezar a usar el servidor.
