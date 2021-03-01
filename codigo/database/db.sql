@@ -3,7 +3,7 @@ CREATE DATABASE db_tasksupervisor;
 USE db_tasksupervisor;
 
 -- Tabla de usuarios
-CREATE TABLE usuarios(
+CREATE TABLE usuarios(       -- Los datos que se guardaran para cada usuario.
     id INT(11) NOT NULL,
     cedula VARCHAR(10) NOT NULL,
     password VARCHAR(60) NOT NULL,
@@ -40,10 +40,10 @@ CREATE TABLE tareas(
 
 -- Asignación de la llave primaria y el auto incremento de 1 al campo id
 ALTER TABLE tareas
-    ADD PRIMARY KEY (id);
+    ADD PRIMARY KEY (id);    // Sera la llave primaria
 
 ALTER TABLE tareas
-    MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
+    MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;   --EL id se va a autocrementar de 1 en 1 
 
 -- Tabla de roles
 CREATE TABLE roles(
@@ -59,4 +59,4 @@ ALTER TABLE roles
 ALTER TABLE roles
     MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
 
-DESCRIBE users;
+DESCRIBE users;    -- Para poder ver la estructura de las tablas
