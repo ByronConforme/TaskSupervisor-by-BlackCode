@@ -23,8 +23,8 @@ app.set('views', path.join(__dirname, 'views'));    //Establece donde esta la ca
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',  //Nombre de la plantilla principal
     layoutsDir: path.join(app.get('views'), 'layouts'), //Esta configuracion significa que layout esta justo dentro de la carpeta views
-    partialsDir: path.join(app.get('views'), 'partials'),
-    extname: '.hbs',
+    partialsDir: path.join(app.get('views'), 'partials'),  //Decimos donse se encuentra sus carpetas.
+    extname: '.hbs',   //El nombre que tendran los archivos en handlebars
     helpers: require('./lib/handlebars')
 }))
 app.set('view engine', '.hbs');
@@ -68,7 +68,7 @@ app.use('/auth', require('./routes/authentication'));
 /*Public
 Colocamos una carpeta donde vamos a colocar todo el codigo que el navegador pueda acceder.
 */
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); // Este metodo utiliza
 
 /*Iniciar el servidor
 Utilizamos esto para empezar a usar el servidor.
