@@ -1,3 +1,4 @@
+// Esta nos va a permitir poder definir otras url, de esta manera tendremos mas orden.
 const { O_RDONLY } = require('constants');
 const express = require('express');
 const router = express.Router();
