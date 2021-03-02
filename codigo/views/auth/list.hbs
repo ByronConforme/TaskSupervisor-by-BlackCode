@@ -14,31 +14,31 @@
         {{#each usuarios}}
             <tr>
                 <td>
-                    <h4>{{id}}</h4>
+                    <h4>{{id}}</h4>   {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td>
-                    <h4>{{cedula}}</h4>
+                    <h4>{{cedula}}</h4>    {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td>
-                    <h4>{{nombre}}</h4>
+                    <h4>{{nombre}}</h4>     {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
+                </td>
+                <td> 
+                    <h4>{{apellido}}</h4>     {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td>
-                    <h4>{{apellido}}</h4>
+                    <h4>{{correo_electronico}}</h4>      {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td>
-                    <h4>{{correo_electronico}}</h4>
+                    <h4>{{fecha_nacimiento}}</h4>     {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td>
-                    <h4>{{fecha_nacimiento}}</h4>
+                    <h4>{{estado}}</h4>        {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td>
-                    <h4>{{estado}}</h4>
+                    <a href="/auth/edit/{{id}}">Editar</a>     
                 </td>
                 <td>
-                    <a href="/auth/edit/{{id}}">Editar</a>
-                </td>
-                <td>
-                    <a href="/auth/delete/{{id}}">Borrar</a>
+                    <a href="/auth/delete/{{id}}">Borrar</a>     
                 </td>
             </tr>
         {{/each}}
