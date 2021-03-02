@@ -8,8 +8,8 @@ const { isLoggedIn, isNotLoggedIn, hasPermission } = require('../lib/auth');
 
 const pool = require('../database');
 
-router.get('/add', isLoggedIn, (req, res)=>{
-    res.render('auth/add');
+router.get('/add', isLoggedIn, (req, res)=>{    //Es un tipico manejador de funcion.
+    res.render('auth/add');   // Es para renderizas desde la carpeta views y de la carpeta auth el archivo add.
 });
 
 router.post('/add', isLoggedIn, passport.authenticate('local.signup',{
