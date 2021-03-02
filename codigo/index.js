@@ -2,7 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const exphbs = require('express-handlebars');
 const path = require('path');  //da las direcciones de donde estan las carpetas.
-const flash = require('connect-flash');
+const flash = require('connect-flash');     //Se importa y luego se almacena en una constante llamado flash.
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session');
 const passport = require('passport');
@@ -50,7 +50,7 @@ app.use(passport.session());
 Se pueden colocar variables que toda la aplicacion necesite
 */
 app.use((req, res, next) => {
-    app.locals.success = req.flash('success');
+    app.locals.success = req.flash('success');  //En las variables globales vamos a tomar ese mensaje y hacer disponibles en todas sus vistas.
     app.locals.success = req.flash('message');
     app.locals.user = req.user;
     next();
