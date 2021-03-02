@@ -2,24 +2,24 @@
     <div>
         <div>
             <div>
-                <form action="/auth/add" method="POST">
+                <form action="/auth/add" method="POST">           {{!-- Los formularios los enviara atravez del método POST --}}
                     <div>
-                        <input type="text" name="cedula" placeholder="Cédula" autofocus required>
+                        <input type="text" name="cedula" placeholder="Cédula" autofocus required>           {{!-- Aparecera un texto en la pagina pidiendo el numero de cedula --}}
                     </div>
                     <div>
-                        <input type="text" name="nombre" placeholder="Nombre" required>
+                        <input type="text" name="nombre" placeholder="Nombre" required>             {{!-- Aparecera un cuadro de texto pidiendo el nombre del usuario --}}                  
+                        </div>
+                    <div>
+                        <input type="password" name="password" placeholder="Contraseña" required>               {{!-- Aparecera un cuadro de texto en el cual pida ingresar una contraseña --}}
                     </div>
                     <div>
-                        <input type="password" name="password" placeholder="Contraseña" required>
+                        <input type="text" name="apellido" placeholder="Apellido" required>             {{!-- Aparecera un cuadro en el cual pida ingresar el apellido del usuario --}}
                     </div>
                     <div>
-                        <input type="text" name="apellido" placeholder="Apellido" required>
+                        <input type="email" name="correo_electronico" placeholder="Correo electrónico" required>             {{!-- Aparecera un cuadro donde pida ingrear el correo electronico del usuario --}}
                     </div>
                     <div>
-                        <input type="email" name="correo_electronico" placeholder="Correo electrónico" required>
-                    </div>
-                    <div>
-                        <input type="text" name="celular" placeholder="Celular" required>
+                        <input type="text" name="celular" placeholder="Celular" required>    {{!-- Aparecera un cuadro de texto donde pida ingresar el numero telefonico o celular --}}
                     </div>
                     <div>
                         <select name="rol_id">
