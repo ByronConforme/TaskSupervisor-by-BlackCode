@@ -33,11 +33,11 @@ app.set('view engine', '.hbs');
 Son funciones que se ejecutan cada vez que un usuario envia una peticion o que cada vez una aplicacion cliente 
 envia una peticion al servidor.
 */
-app.use(session({
-    secret: 'mysqlnodesession',
-    resave: false,
-    saveUninitialized: false,
-    store: new MySQLStore(database)
+app.use(session({   //Es para configurar la session.
+    secret: 'mysqlnodesession',   //Utilizamos un obejto para configurar.
+    resave: false,                //Es para que no se empiece a renovar la session . 
+    saveUninitialized: false,     // Para que no se vuelva a establecer la session.
+    store: new MySQLStore(database)   //Es en donde guardaremos la session, damos la conexion a la base de datos.
 }));
 app.use(flash());
 app.use(morgan('dev'));
