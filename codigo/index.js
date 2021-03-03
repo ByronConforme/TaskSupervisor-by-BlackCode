@@ -5,7 +5,7 @@ const path = require('path');  //da las direcciones de donde estan las carpetas.
 const flash = require('connect-flash');     //Se importa y luego se almacena en una constante llamado flash.
 const session = require('express-session');    //Te permite almacenar las base de datos.
 const MySQLStore = require('express-mysql-session');
-const passport = require('passport');
+const passport = require('passport');     //Sirve para importar y ejecutar su codigo principal
 
 const { database } = require('./keys');
 
