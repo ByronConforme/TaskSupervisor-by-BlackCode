@@ -2,30 +2,24 @@
     <div>
         <div>
             <div>
-                <form action="/tasks/edit/{{usuario.id}}" method="POST">
+                <form action="/tasks/edit/{{tarea.id}}" method="POST">
                     <div>
-                        <input type="text" value="{{usuario.cedula}}" name="cedula" placeholder="Cédula" autofocus>
+                        <input type="text" value="{{tarea.titulo}}" name="titulo" placeholder="Titulo" autofocus>
                     </div>
                     <div>
-                        <input type="text" value="{{usuario.nombre}}" name="nombre" placeholder="Nombre">
+                        <input type="text" value="{{tarea.descripcion}}" name="descripcion" placeholder="Descripción">
                     </div>
                     <div>
-                        <input type="text" value="{{usuario.apellido}}" name="apellido" placeholder="Apellido">
+                        <input type="time" value="{{tarea.tiempo_tarea}}" name="tiempo_tarea">
                     </div>
                     <div>
-                        <input type="text" value="{{usuario.correo_electronico}}" name="correo_electronico" placeholder="Correo electrónico">
-                    </div>
-                    <div>
-                        <input type="text" value="{{usuario.celular}}" name="celular" placeholder="Celular">
-                    </div>
-                    <div>
-                        <select name="rol_id">
-                            <option value="1">Supervisor</option>
-                            <option value="2" selected>Empleado</option>
+                        <select name="tipo_tarea">
+                            <option value="Ocasional" {{isSelected "Ocasional" tarea.tipo_tarea}}>Ocasional</option>
+                            <option value="Diaria" {{isSelected "Diaria" tarea.tipo_tarea}}>Diaria</option>
                         </select>
                     </div>
                     <div>
-                        <input type="date" value="{{usuario.fecha_nacimiento}}" name="fecha_nacimiento">
+                        <input type="text" value="{{tarea.observacion}}" name="observacion">
                     </div>
                     <div>
                         <button>

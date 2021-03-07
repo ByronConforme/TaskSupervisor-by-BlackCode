@@ -10,7 +10,7 @@ router.get('/add', isLoggedIn, (req, res)=>{
 });
 
 router.post('/add', isLoggedIn, async (req, res)=>{
-    const ced_usuario = user.cedula;
+    const ced_usuario = req.user.cedula;
     const { titulo, descripcion, tiempo_tarea, tipo_tarea, observacion } = req.body;
     const nuevaTarea = {
         ced_usuario,
@@ -41,9 +41,9 @@ router.get('/delete/:id', async (req, res) => {
 
 router.get('/edit/:id', async (req, res) => {
     const { id } =req.params;
-    const usuarios = await pool.query("SELECT * FROM usuarios WHERE id = ?", [id]);
-    console.log(usuarios);
-    res.render('tasks/edit', {usuario: usuarios[0]});
+    const tareas = await pool.query("SELECT * FROM tareas WHERE id = ?", [id]);
+    console.log(tareas);
+    res.render('tasks/edit', {tarea: tareas[0]});
 });
 
 router.post('/edit/:id', async (req, res)=>{

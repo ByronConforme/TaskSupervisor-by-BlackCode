@@ -10,4 +10,12 @@ helpers.ifSmaller = (arg1, arg2, options) => {
     return (arg1 < arg2) ? options.fn(this) : options.inverse(this);
 };
 
+helpers.isSelected = (option, value) => {
+    if (option === value) {
+        return ' selected';
+    } else {
+        return ''
+    }
+};
+
 module.exports = helpers;
