@@ -16,10 +16,12 @@ pool.getConnection((err, connection) =>{    //Esto nos ayuda para no estar llama
             console.error('LA CONEXION CON LA BASE DE DATOS HA SIDO RECHAZADA')       //Esto es cuando intentamos hacer conexion a la base de datos y nuestra conexion ha sido rechazada.
         }
     }
-    if (connection) connection.release();       //Con esto iniciara la conexión.
-    console.log('CONEXION EXITOSA CON LA BASE DE DATOS');    //De esta manera sabremos que la base de datos ya esta funcionando.
-    return;
-
+    if (connection){
+        connection.release();       //Con esto iniciara la conexión.
+        console.log('CONEXION EXITOSA CON LA BASE DE DATOS');    //De esta manera sabremos que la base de datos ya esta funcionando.
+        return;
+    } 
+    
 });
 
 //Promisify Pool Querys
