@@ -28,14 +28,14 @@ router.post('/add', isLoggedIn, async (req, res)=>{
 
 router.get('/', isLoggedIn, async (req, res) => {
     ced_usuario = req.user.cedula;
-    const tareas = await pool.query('SELECT * FROM tareas WHERE ced_usuario = ?', ced_usuario);
+    const tareas = await pool.query('SELECT * FROM tareas WHERE ced_usuario = ? AND estado = "A"', ced_usuario);
     res.render('tasks/list', {tareas});
 });
-//FALTA EDITAR Y ELIMINAR TAREAS
+
 router.get('/delete/:id', async (req, res) => {
     const { id } =req.params;
-    await pool.query("UPDATE usuarios SET estado = 'I' WHERE id = ?", [id]);
-    req.flash('success', 'Usuario eliminado exitosamente.');
+    await pool.query("UPDATE tareas SET estado = 'I' WHERE id = ?", [id]);
+    req.flash('success', 'Tarea eliminada exitosamente.');
     res.redirect('/tasks');
 });
 
@@ -48,19 +48,19 @@ router.get('/edit/:id', async (req, res) => {
 
 router.post('/edit/:id', async (req, res)=>{
     const { id } =req.params;
-    const { cedula, nombre, apellido, correo_electronico, celular, rol_id, fecha_nacimiento } = req.body;
-    const nuevoUsuario = {
-        cedula,
-        nombre,
-        apellido,
-        correo_electronico,
-        celular,
-        rol_id,
-        fecha_nacimiento
+    const ced_usuario = req.user.cedula;
+    const { titulo, descripcion, tiempo_tarea, tipo_tarea, observacion } = req.body;
+    const nuevaTarea = {
+        ced_usuario,
+        titulo,
+        descripcion,
+        tiempo_tarea,
+        tipo_tarea,
+        observacion
     };
-    console.log(nuevoUsuario);
-    await pool.query('UPDATE usuarios set ? WHERE id = ?', [nuevoUsuario, id]);
-    req.flash('success', 'Usuario modificado exitosamente.');
+    console.log(nuevaTarea);
+    await pool.query('UPDATE tareas set ? WHERE id = ?', [nuevaTarea, id]);
+    req.flash('success', 'Tarea modificada exitosamente.');
     res.redirect('/tasks');
 });
 

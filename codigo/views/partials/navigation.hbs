@@ -7,10 +7,25 @@
     </div>
     <ul>
         {{#ifSmaller user.rol_id 2}}
-        <li><a href="/auth">Usuarios</a></li>
+        <li>Usuarios
+            <ul>
+                <li><a href="/auth/add">Agregar usuarios</a></li>
+                <li><a href="/auth">Listar usuarios</a></li>
+            </ul>
+        </li>
         {{/ifSmaller}}
-        <li><a href="/tasks">Tareas</a></li>
-        <li><a href="#">Roles</a></li>
+        <li>Tareas
+            <ul>
+                <li><a href="/tasks/add">Agregar tareas</a></li>
+                <li><a href="/tasks">Listar tareas</a></li>
+            </ul>
+        </li>
+        <li>Roles
+            <ul>
+                <li><a href="/roles/add">Agregar roles</a></li>
+                <li><a href="/roles">Listar roles</a></li>
+            </ul>
+        </li>
         <li><a href="/logout">Cerrar sesión</a></li>
     </ul>
     {{/if}}

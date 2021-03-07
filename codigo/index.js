@@ -64,6 +64,7 @@ app.use(require('./routes'));
 app.use(require('./routes/authentication'));
 app.use('/tasks', require('./routes/tasks'));
 app.use('/auth', require('./routes/authentication'));
+app.use('/roles', require('./routes/roles'));
 
 /*Public
 Colocamos una carpeta donde vamos a colocar todo el codigo que el navegador pueda acceder.

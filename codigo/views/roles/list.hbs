@@ -1,0 +1,30 @@
+<div>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Nivel</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+        </tr>
+        {{#each roles}}
+            <tr>
+                <td>
+                    <h4>{{id}}</h4>
+                </td>
+                <td>
+                    <h4>{{nombre}}</h4>
+                </td>
+                <td>
+                    <h4>{{nivel}}</h4>
+                </td>
+                <td>
+                    <a href="/roles/edit/{{id}}">Editar</a>
+                </td>
+                <td>
+                    <a href="/roles/delete/{{id}}">Borrar</a>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+</div>

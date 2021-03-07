@@ -20,8 +20,8 @@
                     </div>
                     <div>
                         <select name="rol_id">
-                            <option value="1">Supervisor</option>
-                            <option value="2" selected>Empleado</option>
+                            <option value="1" {{isSelected 1 usuario.rol_id}}>Supervisor</option>
+                            <option value="2" {{isSelected 2 usuario.rol_id}}>Empleado</option>
                         </select>
                     </div>
                     <div>
