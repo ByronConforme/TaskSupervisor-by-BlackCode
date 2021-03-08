@@ -1,0 +1,25 @@
+<div>
+    <div>
+        <div>
+            <div>
+                <form action="/reports/byUser" method="POST">
+                    <div>
+                        <h3>Reporte de tareas por usuario</h3>
+                    </div>
+                    <div>
+                        <select name="usuarios">
+                            {{#each usuarios}}
+                                <option value="{{cedula}}">{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div>
+                        <button>
+                            Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>  

@@ -8,8 +8,9 @@ const { isLoggedIn, isNotLoggedIn, hasPermission } = require('../lib/auth');
 
 const pool = require('../database');
 
-router.get('/add', isLoggedIn, (req, res)=>{    //Es un tipico manejador de funcion.
-    res.render('auth/add');   // Es para renderizas desde la carpeta views y de la carpeta auth el archivo add.
+router.get('/add', isLoggedIn, async (req, res)=>{    //Es un tipico manejador de funcion.
+    const roles = await pool.query('SELECT * FROM roles WHERE estado = "A"');
+    res.render('auth/add', {roles});   // Es para renderizas desde la carpeta views y de la carpeta auth el archivo add.
 });
 
 router.post('/add', isLoggedIn, passport.authenticate('local.signup',{
@@ -44,21 +45,23 @@ router.get('/', isLoggedIn, hasPermission, async (req, res) => {
     res.render('auth/list', {usuarios});
 });
 
-router.get('/delete/:id', isLoggedIn, async (req, res) => {
+router.get('/delete/:id', isLoggedIn, hasPermission, async (req, res) => {
     const { id } =req.params;
     await pool.query("UPDATE usuarios SET estado = 'I' WHERE id = ?", [id]);
     req.flash('success', 'Usuario eliminado exitosamente.');
     res.redirect('/auth');
 });
 
-router.get('/edit/:id', isLoggedIn, async (req, res) => {
+router.get('/edit/:id', isLoggedIn, hasPermission, async (req, res) => {
     const { id } =req.params;
     const usuarios = await pool.query("SELECT * FROM usuarios WHERE id = ?", [id]);
+    const roles = await pool.query('SELECT * FROM roles WHERE estado = "A"');
     console.log(usuarios);
-    res.render('auth/edit', {usuario: usuarios[0]});
+    console.log(roles);
+    res.render('auth/edit', {usuario: usuarios[0], roles});
 });
 
-router.post('/edit/:id', isLoggedIn, async (req, res)=>{
+router.post('/edit/:id', isLoggedIn, hasPermission, async (req, res)=>{
     const { id } =req.params;
     const { cedula, nombre, apellido, correo_electronico, celular, rol_id, fecha_nacimiento } = req.body;
     const nuevoUsuario = {

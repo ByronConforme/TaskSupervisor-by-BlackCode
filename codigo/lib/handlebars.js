@@ -12,8 +12,10 @@ helpers.ifSmaller = (arg1, arg2, options) => {
 
 helpers.isSelected = (option, value) => {
     if (option === value) {
+        console.log("option: " + option + " = value: " + value);
         return ' selected';
     } else {
+        console.log("option: " + option + " = value: " + value);
         return ''
     }
 };

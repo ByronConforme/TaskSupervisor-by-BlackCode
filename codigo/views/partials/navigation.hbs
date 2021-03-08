@@ -26,6 +26,14 @@
                 <li><a href="/roles">Listar roles</a></li>
             </ul>
         </li>
+        {{#ifSmaller user.rol_id 2}}
+        <li>Reportes
+            <ul>
+                <li><a href="/reports/byUser">Reporte de tareas por usuario</a></li>
+                <li><a href="/reports/byState">Reporte de tareas por estado</a></li>
+            </ul>
+        </li>
+        {{/ifSmaller}}
         <li><a href="/logout">Cerrar sesión</a></li>
     </ul>
     {{/if}}

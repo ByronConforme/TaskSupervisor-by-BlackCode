@@ -3,47 +3,31 @@ const router = express.Router();
 
 const pool = require('../database');
 
-const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
+const { isLoggedIn, hasPermission } = require('../lib/auth');
 
-router.get('/add', isLoggedIn, (req, res)=>{
-    res.render('tasks/add');
+router.get('/byUser', isLoggedIn, async (req, res)=>{
+    const usuarios = await pool.query('SELECT * FROM usuarios WHERE estado = "A"');
+    res.render('reports/generateByUser', {usuarios});
 });
 
-router.post('/add', isLoggedIn, async (req, res)=>{
-    const ced_usuario = req.user.cedula;
-    const { titulo, descripcion, tiempo_tarea, tipo_tarea, observacion } = req.body;
-    const nuevaTarea = {
-        ced_usuario,
-        titulo,
-        descripcion,
-        tiempo_tarea,
-        tipo_tarea,
-        observacion
-    };
-    console.log(nuevaTarea);
-    await pool.query('INSERT INTO tareas set ?', [nuevaTarea]);
-    req.flash('success', 'Tarea guardada exitosamente.');
-    res.redirect('/tasks');
-});
-
-router.get('/', isLoggedIn, async (req, res) => {
-    ced_usuario = req.user.cedula;
+router.post('/byUser', isLoggedIn, async (req, res) => {
+    ced_usuario = req.body.usuarios;
     const tareas = await pool.query('SELECT * FROM tareas WHERE ced_usuario = ? AND estado = "A"', ced_usuario);
-    res.render('tasks/list', {tareas});
+    res.render('reports/reportsTemplate', {tareas});
 });
 
 router.get('/delete/:id', isLoggedIn, async (req, res) => {
     const { id } =req.params;
     await pool.query("UPDATE tareas SET estado = 'I' WHERE id = ?", [id]);
     req.flash('success', 'Tarea eliminada exitosamente.');
-    res.redirect('/tasks');
+    res.redirect('/reports');
 });
 
 router.get('/edit/:id', isLoggedIn, async (req, res) => {
     const { id } =req.params;
     const tareas = await pool.query("SELECT * FROM tareas WHERE id = ?", [id]);
     console.log(tareas);
-    res.render('tasks/edit', {tarea: tareas[0]});
+    res.render('reports/edit', {tarea: tareas[0]});
 });
 
 router.post('/edit/:id', isLoggedIn, async (req, res)=>{
@@ -61,7 +45,7 @@ router.post('/edit/:id', isLoggedIn, async (req, res)=>{
     console.log(nuevaTarea);
     await pool.query('UPDATE tareas set ? WHERE id = ?', [nuevaTarea, id]);
     req.flash('success', 'Tarea modificada exitosamente.');
-    res.redirect('/tasks');
+    res.redirect('/reports');
 });
 
 module.exports = router;

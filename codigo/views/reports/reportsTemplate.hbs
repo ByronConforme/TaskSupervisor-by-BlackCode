@@ -1,0 +1,38 @@
+<div>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Descripción</th>
+            <th>Duración</th>
+            <th>Tipo</th>
+            <th>Creada hace</th>
+            <th>Observación</th>
+        </tr>
+        {{#each tareas}}
+            <tr>
+                <td>
+                    <h4>{{id}}</h4>
+                </td>
+                <td>
+                    <h4>{{titulo}}</h4>
+                </td>
+                <td>
+                    <h4>{{descripcion}}</h4>
+                </td>
+                <td>
+                    <h4>{{tiempo_tarea}}</h4>
+                </td>
+                <td>
+                    <h4>{{tipo_tarea}}</h4>
+                </td>
+                <td>
+                    <h4>{{timeago fecha_hora_gen}}</h4>
+                </td>
+                <td>
+                    <h4>{{observacion}}</h4>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+</div>

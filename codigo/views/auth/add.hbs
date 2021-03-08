@@ -23,8 +23,9 @@
                     </div>
                     <div>
                         <select name="rol_id">
-                            <option value="1">Supervisor</option>
-                            <option value="2" selected>Empleado</option>
+                            {{#each roles}}
+                                <option value="{{id}}">{{nombre}}</option>
+                            {{/each}}
                         </select>
                     </div>
                     <div>
