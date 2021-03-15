@@ -1,0 +1,31 @@
+<div>
+    <div>
+        <div>
+            <div>
+                <form action="/tasks/can_fin/{{tarea.id}}" method="POST">
+                    <div>
+                        {{tarea.titulo}}
+                    </div>
+                    <div>
+                        {{tarea.descripcion}}
+                    </div>
+                    <div>
+                        <select name="estado_tarea">
+                            <option value="Pendiente" selected>Pendiente</option>
+                            <option value="Finalizada">Finalizada</option>
+                            <option value="Cancelada">Cancelada</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="text" name="comentario" placeholder="Comentario" required>
+                    </div>
+                    <div>
+                        <button>
+                            Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>  

@@ -1,13 +1,25 @@
 <div>
     <table border="1">
         <tr>
+            <th colspan="8">Reporte de tareas por usuario</th>
+        </tr>
+        <tr>
+            <th>Usuario</th>
+            <th colspan="2">{{header.nombre}}  {{header.apellido}}</th>
+            <th>Desde</th>
+            <th colspan="2">{{header.fecha_inicio}}</th>
+            <th>Hasta</th>
+            <th colspan="2">{{header.fecha_fin}}</th>
+        </tr>
+        <tr>
             <th>Id</th>
             <th>Titulo</th>
             <th>Descripción</th>
             <th>Duración</th>
             <th>Tipo</th>
-            <th>Creada hace</th>
             <th>Observación</th>
+            <th>Estado de la tarea</th>
+            <th>Comentario</th>
         </tr>
         {{#each tareas}}
             <tr>
@@ -27,10 +39,13 @@
                     <h4>{{tipo_tarea}}</h4>
                 </td>
                 <td>
-                    <h4>{{timeago fecha_hora_gen}}</h4>
+                    <h4>{{observacion}}</h4>
                 </td>
                 <td>
-                    <h4>{{observacion}}</h4>
+                    <h4>{{estado_tarea}}</h4>
+                </td>
+                <td>
+                    <h4>{{comentario}}</h4>
                 </td>
             </tr>
         {{/each}}

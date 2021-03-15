@@ -7,11 +7,17 @@
                         <h3>Reporte de tareas por usuario</h3>
                     </div>
                     <div>
-                        <select name="usuarios">
+                        Usuario: <select name="usuarios">
                             {{#each usuarios}}
                                 <option value="{{cedula}}">{{nombre}}</option>
                             {{/each}}
                         </select>
+                    </div>
+                    <div>
+                        Desde: <input type="date" name="fecha_inicio">
+                    </div>
+                    <div>
+                        Hasta: <input type="date" name="fecha_fin">
                     </div>
                     <div>
                         <button>

@@ -64,4 +64,30 @@ router.post('/edit/:id', isLoggedIn, async (req, res)=>{
     res.redirect('/tasks');
 });
 
+
+router.get('/can_fin/:id', isLoggedIn, async (req, res) => {
+    const { id } =req.params;
+    const tareas = await pool.query("SELECT * FROM tareas WHERE id = ?", [id]);
+    console.log(tareas);
+    res.render('tasks/can_fin', {tarea: tareas[0]});
+});
+
+router.post('/can_fin/:id', isLoggedIn, async (req, res)=>{
+    const { id } = req.params;
+    const id_tarea = id;
+    const ced_usuario = req.user.cedula;
+    const { estado_tarea, comentario } = req.body;
+    const registroTarea = {
+        id_tarea,
+        ced_usuario,
+        estado_tarea,
+        comentario
+    };
+    console.log(registroTarea);
+    await pool.query("UPDATE tareas SET estado_tarea = ? WHERE id = ?", [estado_tarea, id]);
+    await pool.query('INSERT INTO registrotareas set ?', [registroTarea]);
+    req.flash('success', 'Estado de tarea cambiado exitosamente.');
+    res.redirect('/tasks');
+});
+
 module.exports = router;

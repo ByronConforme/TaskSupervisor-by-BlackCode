@@ -6,10 +6,11 @@
             <th>Descripción</th>
             <th>Duración</th>
             <th>Tipo</th>
-            <th>Creada hace</th>
+            <th>Estado</th>
             <th>Observación</th>
             <th>Editar</th>
             <th>Borrar</th>
+            <th>Cambiar estado</th>
         </tr>
         {{#each tareas}}
             <tr>
@@ -29,7 +30,7 @@
                     <h4>{{tipo_tarea}}</h4>
                 </td>
                 <td>
-                    <h4>{{timeago fecha_hora_gen}}</h4>
+                    <h4>{{estado_tarea}}</h4>
                 </td>
                 <td>
                     <h4>{{observacion}}</h4>
@@ -39,6 +40,9 @@
                 </td>
                 <td>
                     <a href="/tasks/delete/{{id}}">Borrar</a>
+                </td>
+                <td>
+                    <a href="/tasks/can_fin/{{id}}">Finalizar/Cancelar</a>
                 </td>
             </tr>
         {{/each}}
