@@ -4,19 +4,34 @@
             <div>
                 <form action="/tasks/add" method="POST">
                     <div>
+                        Titulo:
+                    </div>
+                    <div>
                         <input type="text" name="titulo" placeholder="Titulo">
+                    </div>
+                    <div>
+                        Descripción:
                     </div>
                     <div>
                         <input type="text" name="descripcion" placeholder="Descripción">
                     </div>
                     <div>
+                        Tiempo:
+                    </div>
+                    <div>
                         <input type="time" name="tiempo_tarea">
+                    </div>
+                    <div>
+                        Tipo de tarea:
                     </div>
                     <div>
                         <select name="tipo_tarea">
                             <option value="Diaria">Diaria</option>
                             <option value="Ocasional" selected>Ocasional</option>
                         </select>
+                    </div>
+                    <div>
+                        Observación:
                     </div>
                     <div>
                         <textarea name="observacion" placeholder="Observación"></textarea>

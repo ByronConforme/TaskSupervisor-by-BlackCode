@@ -4,7 +4,13 @@
             <div>
                 <form action="/roles/edit/{{rol.id}}" method="POST">
                     <div>
+                        Nombre:
+                    </div>
+                    <div>
                         <input type="text" value="{{rol.nombre}}" name="nombre" placeholder="Nombre" autofocus>
+                    </div>
+                    <div>
+                        Nivel:
                     </div>
                     <div>
                         <input type="number" value="{{rol.nivel}}" name="nivel" placeholder="Nivel">

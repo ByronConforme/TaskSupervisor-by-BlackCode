@@ -4,10 +4,19 @@
             <div>
                 <form action="/tasks/can_fin/{{tarea.id}}" method="POST">
                     <div>
+                        Titulo:
+                    </div>
+                    <div>
                         {{tarea.titulo}}
                     </div>
                     <div>
+                        Descripción:
+                    </div>
+                    <div>
                         {{tarea.descripcion}}
+                    </div>
+                    <div>
+                        Estado de la tarea:
                     </div>
                     <div>
                         <select name="estado_tarea">
@@ -15,6 +24,9 @@
                             <option value="Finalizada">Finalizada</option>
                             <option value="Cancelada">Cancelada</option>
                         </select>
+                    </div>
+                    <div>
+                        Comentario:
                     </div>
                     <div>
                         <input type="text" name="comentario" placeholder="Comentario" required>

@@ -8,12 +8,12 @@ const { isLoggedIn, isNotLoggedIn, hasPermission } = require('../lib/auth');
 
 const pool = require('../database');
 
-router.get('/add', isLoggedIn, async (req, res)=>{    //Es un tipico manejador de funcion.
+router.get('/add', isLoggedIn, hasPermission, async (req, res)=>{    //Es un tipico manejador de funcion.
     const roles = await pool.query('SELECT * FROM roles WHERE estado = "A"');
     res.render('auth/add', {roles});   // Es para renderizas desde la carpeta views y de la carpeta auth el archivo add.
 });
 
-router.post('/add', isLoggedIn, passport.authenticate('local.signup',{
+router.post('/add', isLoggedIn, hasPermission, passport.authenticate('local.signup',{
         successRedirect: '/profile',
         failureRedirect: '/add',
         failureFlash: true

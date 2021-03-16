@@ -4,19 +4,34 @@
             <div>
                 <form action="/tasks/edit/{{tarea.id}}" method="POST">
                     <div>
+                        Titulo:
+                    </div>
+                    <div>
                         <input type="text" value="{{tarea.titulo}}" name="titulo" placeholder="Titulo" autofocus>
+                    </div>
+                    <div>
+                        Descripción:
                     </div>
                     <div>
                         <input type="text" value="{{tarea.descripcion}}" name="descripcion" placeholder="Descripción">
                     </div>
                     <div>
+                        Tiempo:
+                    </div>
+                    <div>
                         <input type="time" value="{{tarea.tiempo_tarea}}" name="tiempo_tarea">
+                    </div>
+                    <div>
+                        Tipo de tarea:
                     </div>
                     <div>
                         <select name="tipo_tarea">
                             <option value="Ocasional" {{isSelected "Ocasional" tarea.tipo_tarea}}>Ocasional</option>
                             <option value="Diaria" {{isSelected "Diaria" tarea.tipo_tarea}}>Diaria</option>
                         </select>
+                    </div>
+                    <div>
+                        Observación:
                     </div>
                     <div>
                         <input type="text" value="{{tarea.observacion}}" name="observacion">

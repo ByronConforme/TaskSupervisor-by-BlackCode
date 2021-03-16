@@ -1,18 +1,22 @@
 <div>
     <table border="1">
         <tr>
-            <th colspan="8">Reporte de tareas por usuario</th>
+            <th colspan="9">Reporte de tareas por usuario</th>
         </tr>
         <tr>
             <th>Usuario</th>
-            <th colspan="2">{{header.nombre}}  {{header.apellido}}</th>
+            <th>{{header.nombre}}  {{header.apellido}}</th>
             <th>Desde</th>
             <th colspan="2">{{header.fecha_inicio}}</th>
-            <th>Hasta</th>
+            <th colspan="2">Hasta</th>
             <th colspan="2">{{header.fecha_fin}}</th>
         </tr>
         <tr>
+            <th colspan="9">Lista de tareas</th>
+        </tr>
+        <tr>
             <th>Id</th>
+            <th>Fecha del registro</th>
             <th>Titulo</th>
             <th>Descripción</th>
             <th>Duración</th>
@@ -25,6 +29,9 @@
             <tr>
                 <td>
                     <h4>{{id}}</h4>
+                </td>
+                <td>
+                    <h4>{{fecha_hora}}</h4>
                 </td>
                 <td>
                     <h4>{{titulo}}</h4>
