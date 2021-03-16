@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-03-2021 a las 01:19:28
+-- Tiempo de generación: 16-03-2021 a las 03:39:55
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.1
 
@@ -24,6 +24,52 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `registrotareas`
+--
+
+CREATE TABLE `registrotareas` (
+  `id` int(11) NOT NULL,
+  `id_tarea` int(11) NOT NULL,
+  `ced_usuario` varchar(10) NOT NULL,
+  `estado_tarea` varchar(20) NOT NULL DEFAULT 'Pendiente',
+  `comentario` varchar(255) NOT NULL,
+  `fecha_hora` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `registrotareas`
+--
+
+INSERT INTO `registrotareas` (`id`, `id_tarea`, `ced_usuario`, `estado_tarea`, `comentario`, `fecha_hora`) VALUES
+(2, 4, '0951665405', 'Finalizada', 'Sin novedades', '2021-03-14 16:18:09'),
+(3, 4, '0951665405', 'Finalizada', 'Sin novedades', '2021-03-14 21:42:33'),
+(4, 4, '0951665405', 'Pendiente', 'Prueba', '2021-03-14 21:42:55');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(2) NOT NULL,
+  `nombre` varchar(25) NOT NULL,
+  `nivel` int(1) NOT NULL,
+  `estado` char(1) NOT NULL DEFAULT 'A'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`id`, `nombre`, `nivel`, `estado`) VALUES
+(1, 'System Admin', 0, 'A'),
+(2, 'Empleado', 2, 'A'),
+(3, 'Supervisor', 1, 'A');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `sessions`
 --
 
@@ -38,7 +84,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
-('clknA2JND2pCrp67Qkd13TGQTtxqn4Zd', 1615582254, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":11}}');
+('A_s77jlzFNm0OdRKuXsoyv52Kxyw90fB', 1615868531, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":11}}'),
+('kPCFT7M0OtY1U0pC5_grbANv8CTpxBf4', 1615948414, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":11}}');
 
 -- --------------------------------------------------------
 
@@ -53,8 +100,7 @@ CREATE TABLE `tareas` (
   `descripcion` varchar(100) NOT NULL,
   `tiempo_tarea` time NOT NULL,
   `tipo_tarea` varchar(10) NOT NULL,
-  `fecha_hora_gen` timestamp NOT NULL DEFAULT current_timestamp(),
-  `fecha_hora_eje` datetime DEFAULT NULL,
+  `estado_tarea` varchar(10) NOT NULL DEFAULT 'Pendiente',
   `observacion` varchar(250) DEFAULT NULL,
   `estado` char(1) NOT NULL DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -63,11 +109,11 @@ CREATE TABLE `tareas` (
 -- Volcado de datos para la tabla `tareas`
 --
 
-INSERT INTO `tareas` (`id`, `ced_usuario`, `titulo`, `descripcion`, `tiempo_tarea`, `tipo_tarea`, `fecha_hora_gen`, `fecha_hora_eje`, `observacion`, `estado`) VALUES
-(4, '0951665405', 'Tarea de prueba', 'Tarea de ingreso de prueba', '01:00:00', 'Ocasional', '2021-02-12 20:14:46', NULL, 'Tarea editada', 'A'),
-(5, '0951665405', 'Tarea de prueba 2', 'Tarea de ingreso de prueba con cedula no fija', '04:00:00', 'Diaria', '2021-02-28 20:07:32', NULL, 'ninguna', 'A'),
-(6, '1717171717', 'Tarea de prueba 3', 'Tarea de ingreso de prueba con otro usuario', '03:00:00', 'Diaria', '2021-02-28 20:10:50', NULL, 'usuario Andres', 'A'),
-(7, '1717171717', 'Cambio de input para horas', 'Cambio del campo de number a time', '02:00:00', 'Diaria', '2021-03-07 18:39:05', NULL, 'ingresado desde usuario Andres', 'A');
+INSERT INTO `tareas` (`id`, `ced_usuario`, `titulo`, `descripcion`, `tiempo_tarea`, `tipo_tarea`, `estado_tarea`, `observacion`, `estado`) VALUES
+(4, '0951665405', 'Tarea de prueba', 'Tarea de ingreso de prueba', '01:00:00', 'Ocasional', 'Pendiente', 'Tarea editada', 'A'),
+(5, '0951665405', 'Tarea de prueba 2', 'Tarea de ingreso de prueba con cedula no fija', '04:00:00', 'Diaria', 'Pendiente', 'ninguna', 'A'),
+(6, '1717171717', 'Tarea de prueba 3', 'Tarea de ingreso de prueba con otro usuario', '03:00:00', 'Diaria', 'Pendiente', 'usuario Andres', 'A'),
+(7, '1717171717', 'Cambio de input para horas', 'Cambio del campo de number a time', '02:00:00', 'Diaria', 'Pendiente', 'ingresado desde usuario Andres', 'A');
 
 -- --------------------------------------------------------
 
@@ -101,6 +147,18 @@ INSERT INTO `usuarios` (`id`, `cedula`, `password`, `nombre`, `apellido`, `corre
 --
 
 --
+-- Indices de la tabla `registrotareas`
+--
+ALTER TABLE `registrotareas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `sessions`
 --
 ALTER TABLE `sessions`
@@ -124,6 +182,18 @@ ALTER TABLE `usuarios`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `registrotareas`
+--
+ALTER TABLE `registrotareas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tareas`
