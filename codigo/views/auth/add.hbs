@@ -1,59 +1,57 @@
-<div>
+<div class=" w4l-login-form">
     <div>
         <div>
             <div>
                 <form action="/auth/add" method="POST">           {{!-- Los formularios los enviara atravez del método POST --}}
-                    <div>
-                        Cédula:
-                    </div>
-                    <div>
-                        <input type="text" name="cedula" placeholder="Cédula" autofocus required>           {{!-- Aparecera un texto en la pagina pidiendo el numero de cedula --}}
-                    </div>
-                    <div>
-                        Nombre:
-                    </div>
-                    <div>
+                    <div class=" w4l-form-group">
+                        <label>Cédula:</label>
+                        <div class="group">
+                            <input type="text" name="cedula" placeholder="Cédula" autofocus required>           {{!-- Aparecera un texto en la pagina pidiendo el numero de cedula --}}
+                        </div>
+                    <div class=" w4l-form-group">
+                        <label>Nombre:</label>
+                        <div class="group">
                         <input type="text" name="nombre" placeholder="Nombre" required>             {{!-- Aparecera un cuadro de texto pidiendo el nombre del usuario --}}                  
+                        </div>
                     </div>
-                    <div>
-                        Apellido:
-                    </div>
-                    <div>
+                    <div class=" w4l-form-group">
+                        <label>Apellido:</label>
+                        <div class="group">
                         <input type="text" name="apellido" placeholder="Apellido" required>             {{!-- Aparecera un cuadro en el cual pida ingresar el apellido del usuario --}}
+                        </div>
                     </div>
-                    <div>
-                        Contraseña:
-                    </div>
-                    <div>
+                    <div class=" w4l-form-group">
+                        <label>Contraseña:</label>
+                        <div class="group">
                         <input type="password" name="password" placeholder="Contraseña" required>               {{!-- Aparecera un cuadro de texto en el cual pida ingresar una contraseña --}}
+                        </div>
                     </div>
-                    <div>
-                        Correo electrónico:
-                    </div>
-                    <div>
+                    <div class=" w4l-form-group">
+                        <label>Correo electrónico:</label>
+                        <div class="group">
                         <input type="email" name="correo_electronico" placeholder="Correo electrónico" required>             {{!-- Aparecera un cuadro donde pida ingrear el correo electronico del usuario --}}
+                        </div>
                     </div>
-                    <div>
-                        Celular:
-                    </div>
-                    <div>
+                    <div class=" w4l-form-group">
+                        <label>Celular:</label>
+                        <div class="group">
                         <input type="text" name="celular" placeholder="Celular" required>    {{!-- Aparecera un cuadro de texto donde pida ingresar el numero telefonico o celular --}}
+                        </div>
                     </div>
-                    <div>
-                        Rol:
-                    </div>
-                    <div>
+                    <div class=" w4l-form-group">
+                        <label>Rol:</label>
+                        <div class="group">
                         <select name="rol_id">
                             {{#each roles}}
                                 <option value="{{id}}">{{nombre}}</option>
                             {{/each}}
                         </select>
                     </div>
-                    <div>
-                        Fecha de nacimiento:
-                    </div>
-                    <div>
+                    <div class=" w4l-form-group">
+                        <label>Fecha de nacimiento:</label>
+                        <div class="group">
                         <input type="date" name="fecha_nacimiento" required>
+                        </div>
                     </div>
                     <div>
                         <button>
