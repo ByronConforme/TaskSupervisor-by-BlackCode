@@ -1,61 +1,26 @@
-<div>
-    <div>
-        <div>
-            <div>
-                <form action="/auth/edit/{{usuario.id}}" method="POST">
-                    <div>
-                        Cédula:
-                    </div>
-                    <div>
-                        <input type="text" value="{{usuario.cedula}}" name="cedula" placeholder="Cédula" autofocus required>
-                    </div>
-                    <div>
-                        Nombre:
-                    </div>
-                    <div>
-                        <input type="text" value="{{usuario.nombre}}" name="nombre" placeholder="Nombre" required>
-                    </div>
-                     <div>
-                        Apellido:
-                    </div>
-                    <div>
-                        <input type="text" value="{{usuario.apellido}}" name="apellido" placeholder="Apellido" required>
-                    </div>
-                     <div>
-                        Correo electrónico:
-                    </div>
-                    <div>
-                        <input type="email" value="{{usuario.correo_electronico}}" name="correo_electronico" placeholder="Correo electrónico" required>
-                    </div>
-                    <div>
-                        Celular:
-                    </div>
-                    <div>
-                        <input type="text" value="{{usuario.celular}}" name="celular" placeholder="Celular" required>
-                    </div>
-                    <div>
-                        Rol:
-                    </div>
-                    <div>
-                        <select name="rol_id">
+<form action="/auth/add" method="POST" class="form-register">           
+                    <h2 class="formtitulo">Ingrese sus nuevos datos</h2>
+                    <div class="contenedor-inputs">
+                        <input type="text1" value="{{usuario.cedula}}" name="cedula" placeholder="Cédula" class="input-100" autofocus required>
+                   
+                        <input type="text2" value="{{usuario.nombre}}" name="nombre" placeholder="Nombre" class="input-48" required>
+                   
+                        <input type="text3" value="{{usuario.apellido}}" name="apellido" placeholder="Apellido" class="input-48" required>
+                    
+                        <input type="email" value="{{usuario.correo_electronico}}" name="correo_electronico" placeholder="Correo electrónico" class="input-100" required>
+                    
+                        <input type="text6" value="{{usuario.celular}}" name="celular" placeholder="Celular" class="input-100" required>
+                   
+                        <select type="select" name="rol_id" class="input-100">
                             {{#each roles}}
                                 <option value="{{id}}" {{isSelected id ../usuario.rol_id}}>{{nombre}}</option>
                             {{/each}}
                         </select>
-                    </div>
-                    <div>
-                        Fecha de nacimiento:
-                    </div>
-                    <div>
+                  
                         <input type="date" value="{{usuario.fecha_nacimiento}}" name="fecha_nacimiento" required>
-                    </div>
-                    <div>
+                    
                         <button>
                             Guardar
                         </button>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>  
+</form>
