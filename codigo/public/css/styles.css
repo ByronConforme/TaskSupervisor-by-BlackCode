@@ -329,7 +329,7 @@ ul{
 	background: #f3f3f3;
 }
 
-.container{
+.container1{
 	background: #f3f3f3;
 	position: fixed;
 	height: 100%;
@@ -410,19 +410,82 @@ nav ul li:hover > ul {
 .wrapper{
     display: flex;
     position: relative;
-  }
+}
 
 .wrapper .main_content{
     width: 100%;
     margin-left: 200px;
-  }
+}
   
-  .wrapper .main_content .header{
+.wrapper .main_content .header{
     text-align: right;
     padding: 20px;
     background: rgb(235, 235, 238);
     color: #242020;
     border-bottom: 1px solid #e0e4e8;
     box-shadow: 3px 0 10px rgba(0,0,0,.2);
-  }
+}
 
+.form-register{
+    width:95%;
+    max-width: 500px;
+    margin-top: 100px;
+    margin-left: 700px;
+    background: white;
+    border-radius: 7px;
+}
+
+.formtitulo{
+      background: deepskyblue;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-weight: 100;
+      font-size: 30px;
+      border-top-left-radius: 7px;
+      border-top-right-radius: 7px;
+      border-bottom: 5px solid crimson;
+}
+
+.contenedor-inputs{
+      padding: 10px 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+}
+
+input[type="text1"],
+input[type="text2"],
+input[type="text3"],
+input[type="password1"],
+input[type="email"],
+input[type="text6"],
+select[type="select"],
+input[type="date"]{
+    margin-bottom: 15px;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid darkgray;
+}
+
+.input-48{
+    width: 48%;
+}
+
+.input-100{
+    width: 100%;
+}
+
+.btn-registrar{
+    background: crimson;
+    color: #fff;
+    margin: auto;
+    padding: 10px 40px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-registrar:active{
+    transform: scale(1.05);
+}
