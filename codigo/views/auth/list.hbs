@@ -1,5 +1,13 @@
-<div>           {{!-- Podremos listar nuestros enlaces --}}      
-    <table border="1">
+
+         {{!-- Podremos listar nuestros enlaces --}}      
+    <div class="container">
+        <div class ="jumbotron">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h5 class="card-title">Listado de Usuarios Agregados</h5>
+                </div>
+                <div class="card-body">
+    <table class="table">
         <tr>
             <th>Id</th>           {{!-- Define la celda como encabezado de un grupo de celdas en la tabla. --}}
             <th>Cedula</th>       {{!-- Define la celda como encabezado de un grupo de celdas en la tabla. --}}
@@ -12,35 +20,41 @@
             <th>Borrar</th>          {{!-- Define la celda como encabezado de un grupo de celdas en la tabla. --}}
         </tr>
         {{#each usuarios}}
+            <tbody>
             <tr>
                 <td>
-                    <h4>{{id}}</h4>   {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
+                    {{id}}   {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td>
-                    <h4>{{cedula}}</h4>    {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
+                    {{cedula}}   {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td>
-                    <h4>{{nombre}}</h4>     {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
+                    {{nombre}}     {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td> 
-                    <h4>{{apellido}}</h4>     {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
+                    {{apellido}}     {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td>
-                    <h4>{{correo_electronico}}</h4>      {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
+                    {{correo_electronico}}      {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td>
-                    <h4>{{fecha_nacimiento}}</h4>     {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
+                    {{fecha_nacimiento}}     {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td>
-                    <h4>{{estado}}</h4>        {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
+                    {{estado}}        {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td>
-                    <a href="/auth/edit/{{id}}">Editar</a>     {{!-- Se encarga de crear etiquetas --}}
+                    <button type="button" class="btn btn-primary"><a href="/auth/edit/{{id}}">Editar</a></button>     {{!-- Se encarga de crear etiquetas --}}
                 </td>
                 <td>
-                    <a href="/auth/delete/{{id}}">Borrar</a>   {{!-- Todos los botones de list me van a enviar la ruta task --}}  
+                    <button type="button" class="btn btn-danger"><a href="/auth/delete/{{id}}">Borrar</a></button>   {{!-- Todos los botones de list me van a enviar la ruta task --}}  
                 </td>
             </tr>
+            </tbody>
         {{/each}}
     </table>
 </div>
+</div>
+</div>
+</div>
+
