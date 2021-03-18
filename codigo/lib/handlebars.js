@@ -1,4 +1,5 @@
 const { format, register } = require('timeago.js');   //requerimos timeago, lo ejecutamos y se vuelve una instancia.
+const moment = require("moment");
 const helpers = {};                        //helpers ens un objeto que sera utilizado por la vista de handlebars.
 
 register('es_ES', (number, index, total_sec) => [
@@ -21,6 +22,12 @@ register('es_ES', (number, index, total_sec) => [
 helpers.timeago = (timestamp) => {     //timestamp es utilizado desde la vista. Estamos importando timeago
     console.log(format(timestamp, 'es_ES'));   
     return format(timestamp, 'es_ES');         //Demostrara cuanto tiempo a pasado desde la publicacion.
+};
+
+helpers.dateFormat = (date, arguments) => {
+    const formatToUse = (arguments && arguments.hash && arguments.hash.format) || "YYYY-MM-DD"
+    console.log(formatToUse);
+    return moment(date).format(formatToUse);
 };
 
 helpers.ifSmaller = (arg1, arg2, options) => {
