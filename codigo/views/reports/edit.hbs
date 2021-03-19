@@ -1,33 +1,28 @@
-<div>
-    <div>
-        <div>
-            <div>
-                <form action="/tasks/edit/{{tarea.id}}" method="POST">
+<form action="/tasks/edit/{{tarea.id}}" method="POST" class="form-register">
+                    
+                    <div class="contenedor1-inputs">
                     <div>
-                        <input type="text" value="{{tarea.titulo}}" name="titulo" placeholder="Titulo" autofocus>
+                        <input type="text1" value="{{tarea.titulo}}" name="titulo" placeholder="Titulo" class="input-100" autofocus>
                     </div>
                     <div>
-                        <input type="text" value="{{tarea.descripcion}}" name="descripcion" placeholder="Descripción">
+                        <input type="text2" value="{{tarea.descripcion}}" name="descripcion" placeholder="Descripción" class="input-100">
                     </div>
                     <div>
-                        <input type="time" value="{{tarea.tiempo_tarea}}" name="tiempo_tarea">
+                        <input type="time" value="{{tarea.tiempo_tarea}}" name="tiempo_tarea" class="input-100">
                     </div>
                     <div>
-                        <select name="tipo_tarea">
+                        <select type="select" name="tipo_tarea" class="input-100">
                             <option value="Ocasional" {{isSelected "Ocasional" tarea.tipo_tarea}}>Ocasional</option>
                             <option value="Diaria" {{isSelected "Diaria" tarea.tipo_tarea}}>Diaria</option>
                         </select>
                     </div>
                     <div>
-                        <input type="text" value="{{tarea.observacion}}" name="observacion">
+                        <input type="text3" value="{{tarea.observacion}}" name="observacion" class="input-100">
                     </div>
                     <div>
                         <button>
                             Guardar
                         </button>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>  
+                    </div>
+</form>
