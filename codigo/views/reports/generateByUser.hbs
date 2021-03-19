@@ -1,13 +1,8 @@
-<div>
-    <div>
-        <div>
-            <div>
-                <form action="/reports/byUser" method="POST">
+<form action="/reports/byUser" method="POST" class="form-register">
+                    <h2 class="formtitulo">Reporte de tareas por Usuario</h2>
+                    <div class="contenedor1-inputs">
                     <div>
-                        <h3>Reporte de tareas por usuario</h3>
-                    </div>
-                    <div>
-                        Usuario: <select name="usuarios">
+                        Usuario: <select type="select" name="usuarios" class="input-100">
                             {{#each usuarios}}
                                 <option value="{{cedula}}">{{nombre}}</option>
                             {{/each}}
@@ -24,8 +19,5 @@
                             Enviar
                         </button>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>  
+                    </div>
+</form>
