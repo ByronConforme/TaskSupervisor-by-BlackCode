@@ -1,31 +1,29 @@
-<div>
-    <div>
-        <div>
-            <div>
-                <form action="/tasks/add" method="POST">
+<form action="/tasks/add" method="POST" class="form-register">
+                    <h2 class="formtitulo">Ingrese nueva Tarea</h2>
+                    <div class="contenedor1-inputs">
                     <div>
                         Titulo:
                     </div>
                     <div>
-                        <input type="text" name="titulo" placeholder="Titulo">
+                        <input type="text1" name="titulo" placeholder="Titulo" class="input-100">
                     </div>
                     <div>
                         Descripción:
                     </div>
                     <div>
-                        <input type="text" name="descripcion" placeholder="Descripción">
+                        <input type="text2" name="descripcion" placeholder="Descripción" class="input-100">
                     </div>
                     <div>
                         Tiempo:
                     </div>
                     <div>
-                        <input type="time" name="tiempo_tarea">
+                        <input type="time" name="tiempo_tarea" class="input-100">
                     </div>
                     <div>
                         Tipo de tarea:
                     </div>
                     <div>
-                        <select name="tipo_tarea">
+                        <select type="select" name="tipo_tarea" class="input-100">
                             <option value="Diaria">Diaria</option>
                             <option value="Ocasional" selected>Ocasional</option>
                         </select>
@@ -34,15 +32,12 @@
                         Observación:
                     </div>
                     <div>
-                        <textarea name="observacion" placeholder="Observación"></textarea>
+                        <textarea type="textarea" name="observacion" placeholder="Observación" class="input-100"></textarea>
                     </div>
                     <div>
                         <button>
                             Guardar
                         </button>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>  
+                    </div>
+</form>
