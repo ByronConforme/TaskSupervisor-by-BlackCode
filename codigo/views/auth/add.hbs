@@ -1,0 +1,33 @@
+<div id="img_back">
+               
+<form action="/auth/add" method="POST" class="form-register">           {{!-- Los formularios los enviara atravez del método POST --}}
+                    <h2 class="formtitulo">Ingrese Nuevo Usuario</h2>
+                    <div class="contenedor-inputs">
+                        
+                        <input type="text1" name="cedula" placeholder="Cédula" class="input-100" autofocus required >           {{!-- Aparecera un texto en la pagina pidiendo el numero de cedula --}}
+                        
+                        <input type="text2" name="nombre" placeholder="Nombre" class="input-48" required >             {{!-- Aparecera un cuadro de texto pidiendo el nombre del usuario --}}                  
+                        
+                        <input type="text3" name="apellido" placeholder="Apellido" class="input-48" required>             {{!-- Aparecera un cuadro en el cual pida ingresar el apellido del usuario --}}
+                    
+                        <input type="password" name="password" placeholder="Contraseña" class="input-100" required>               {{!-- Aparecera un cuadro de texto en el cual pida ingresar una contraseña --}}
+                    
+                        <input type="email" name="correo_electronico" placeholder="Correo electrónico" class="input-100" required>             {{!-- Aparecera un cuadro donde pida ingrear el correo electronico del usuario --}}
+                     
+                        <input type="text6" name="celular" placeholder="Celular" class="input-100" required>    {{!-- Aparecera un cuadro de texto donde pida ingresar el numero telefonico o celular --}}
+                        
+                        <select type="select" name="rol_id" class="input-100">
+                            {{#each roles}}
+                                <option value="{{id}}">{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                    
+                        <input type="date" name="fecha_nacimiento" class="input-48" required>
+                        
+                        <button>
+                            Registrar
+                        </button>
+                    </div>    
+                   
+</form>
+</div>

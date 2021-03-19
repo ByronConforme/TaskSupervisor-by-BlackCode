@@ -1,0 +1,23 @@
+<form action="/reports/byUser" method="POST" class="form-register">
+                    <h2 class="formtitulo">Reporte de tareas por Usuario</h2>
+                    <div class="contenedor1-inputs">
+                    <div>
+                        Usuario: <select type="select" name="usuarios" class="input-100">
+                            {{#each usuarios}}
+                                <option value="{{cedula}}">{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div>
+                        Desde: <input type="date" name="fecha_inicio">
+                    </div>
+                    <div>
+                        Hasta: <input type="date" name="fecha_fin">
+                    </div>
+                    <div>
+                        <button>
+                            Enviar
+                        </button>
+                    </div>
+                    </div>
+</form>

@@ -1,0 +1,61 @@
+<div class="container">
+        <div class ="jumbotron">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h5 class="card-title">Listado de Tareas Agregadas</h5>
+                </div>
+                <div class="card-body">
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Descripción</th>
+            <th>Duración</th>
+            <th>Tipo</th>
+            <th>Estado</th>
+            <th>Observación</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+            <th>Cambiar estado</th>
+        </tr>
+        {{#each tareas}}
+            <tbody>
+            <tr>
+                <td>
+                    {{id}}
+                </td>
+                <td>
+                    {{titulo}}
+                </td>
+                <td>
+                    {{descripcion}}
+                </td>
+                <td>
+                    {{tiempo_tarea}}
+                </td>
+                <td>
+                    {{tipo_tarea}}
+                </td>
+                <td>
+                    {{estado_tarea}}
+                </td>
+                <td>
+                    {{observacion}}
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary"><a href="/tasks/edit/{{id}}">Editar</a></button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger"><a href="/tasks/delete/{{id}}">Borrar</a></button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-success"><a href="/tasks/can_fin/{{id}}">Finalizar/Cancelar</a></button>
+                </td>
+            </tr>
+            </tbody>
+        {{/each}}
+    </table>
+</div>
+</div>
+</div>
+</div>

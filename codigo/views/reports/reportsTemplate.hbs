@@ -1,0 +1,68 @@
+<div class="container">
+        <div class ="jumbotron">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h5 class="card-title">Reporte de tareas por usuario</h5>
+                </div>
+                <div class="card-body">
+    <table class="table">
+        <tr>
+            <th>Usuario</th>
+            <th>{{header.nombre}}  {{header.apellido}}</th>
+            <th>Desde</th>
+            <th colspan="2">{{header.fecha_inicio}}</th>
+            <th colspan="2">Hasta</th>
+            <th colspan="2">{{header.fecha_fin}}</th>
+        </tr>
+        <tr>
+            <th colspan="9">Lista de tareas</th>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <th>Fecha del registro</th>
+            <th>Titulo</th>
+            <th>Descripción</th>
+            <th>Duración</th>
+            <th>Tipo</th>
+            <th>Observación</th>
+            <th>Estado de la tarea</th>
+            <th>Comentario</th>
+        </tr>
+        {{#each tareas}}
+            <tbody>
+            <tr>
+                <td>
+                    <h4>{{id}}
+                </td>
+                <td>
+                    <h4>{{fecha_hora}}
+                </td>
+                <td>
+                    <h4>{{titulo}}
+                </td>
+                <td>
+                    <h4>{{descripcion}}
+                </td>
+                <td>
+                    <h4>{{tiempo_tarea}}</h4>
+                </td>
+                <td>
+                    <h4>{{tipo_tarea}}</h4>
+                </td>
+                <td>
+                    <h4>{{observacion}}</h4>
+                </td>
+                <td>
+                    <h4>{{estado_tarea}}</h4>
+                </td>
+                <td>
+                    <h4>{{comentario}}</h4>
+                </td>
+            </tr>
+            </tbody>
+        {{/each}}
+    </table>
+</div>
+</div>
+</div>
+</div>

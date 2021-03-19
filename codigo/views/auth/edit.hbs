@@ -1,0 +1,28 @@
+<div id="img_back">
+<form action="/auth/edit/{{usuario.id}}" method="POST" class="form-register">           
+                    <h2 class="formtitulo">Ingrese sus nuevos datos</h2>
+                    <div class="contenedor-inputs">
+                        <input type="text1" value="{{usuario.cedula}}" name="cedula" placeholder="Cédula" class="input-100" autofocus required>
+                   
+                        <input type="text2" value="{{usuario.nombre}}" name="nombre" placeholder="Nombre" class="input-48" required>
+                   
+                        <input type="text3" value="{{usuario.apellido}}" name="apellido" placeholder="Apellido" class="input-48" required>
+                    
+                        <input type="email" value="{{usuario.correo_electronico}}" name="correo_electronico" placeholder="Correo electrónico" class="input-100" required>
+                    
+                        <input type="text6" value="{{usuario.celular}}" name="celular" placeholder="Celular" class="input-100" required>
+                   
+                        <select type="select" name="rol_id" class="input-100">
+                            {{#each roles}}
+                                <option value="{{id}}" {{isSelected id ../usuario.rol_id}}>{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                  
+                        <input type="date" value="{{dateFormat usuario.fecha_nacimiento}}" name="fecha_nacimiento" required>
+                    
+                        <button>
+                            Guardar
+                        </button>
+                    </div>
+</form>
+</div>
