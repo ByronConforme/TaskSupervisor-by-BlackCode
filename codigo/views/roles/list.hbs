@@ -1,5 +1,11 @@
-<div>
-    <table border="1">
+<div class="container">
+        <div class ="jumbotron">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h5 class="card-title">Listado de Roles Agregadas</h5>
+                </div>
+                <div class="card-body">
+    <table class="table">
         <tr>
             <th>Id</th>
             <th>Nombre</th>
@@ -8,23 +14,28 @@
             <th>Borrar</th>
         </tr>
         {{#each roles}}
+            <tbody>
             <tr>
                 <td>
-                    <h4>{{id}}</h4>
+                    {{id}}
                 </td>
                 <td>
-                    <h4>{{nombre}}</h4>
+                    {{nombre}}
                 </td>
                 <td>
-                    <h4>{{nivel}}</h4>
+                    {{nivel}}
                 </td>
                 <td>
-                    <a href="/roles/edit/{{id}}">Editar</a>
+                    <button type="button" class="btn btn-primary"><a href="/roles/edit/{{id}}">Editar</a></button>
                 </td>
                 <td>
-                    <a href="/roles/delete/{{id}}">Borrar</a>
+                    <button type="button" class="btn btn-danger"><a href="/roles/delete/{{id}}">Borrar</a></button>
                 </td>
             </tr>
+            </tbody>
         {{/each}}
     </table>
+</div>
+</div>
+</div>
 </div>
