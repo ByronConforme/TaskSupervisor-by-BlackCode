@@ -14,7 +14,7 @@
             <th>Nombre</th>        {{!-- Define la celda como encabezado de un grupo de celdas en la tabla. --}}
             <th>Apellido</th>     {{!-- Define la celda como encabezado de un grupo de celdas en la tabla. --}}
             <th>Correo</th>       {{!-- Define la celda como encabezado de un grupo de celdas en la tabla. --}}
-            <th>Nacio hace</th>    {{!-- Define la celda como encabezado de un grupo de celdas en la tabla. --}}
+            <th>Fecha de nacimiento</th>    {{!-- Define la celda como encabezado de un grupo de celdas en la tabla. --}}
             <th>Estado</th>        {{!-- Define la celda como encabezado de un grupo de celdas en la tabla. --}}
             <th>Editar</th>       {{!-- Define la celda como encabezado de un grupo de celdas en la tabla. --}}
             <th>Borrar</th>          {{!-- Define la celda como encabezado de un grupo de celdas en la tabla. --}}
@@ -38,7 +38,7 @@
                     {{correo_electronico}}      {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td>
-                    {{fecha_nacimiento}}     {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
+                    {{dateFormat fecha_nacimiento format="DD-MM-YYYY"}}     {{!-- Nos ayuda para establecer como titulos o subtitulos --}}
                 </td>
                 <td>
                     {{estado}}        {{!-- Nos ayuda para establecer como titulos o subtitulos --}}

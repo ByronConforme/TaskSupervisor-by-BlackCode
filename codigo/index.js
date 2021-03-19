@@ -51,7 +51,7 @@ Se pueden colocar variables que toda la aplicacion necesite
 */
 app.use((req, res, next) => {
     app.locals.success = req.flash('success');  //En las variables globales vamos a tomar ese mensaje y hacer disponibles en todas sus vistas.
-    app.locals.success = req.flash('message');
+    app.locals.message = req.flash('message');
     app.locals.user = req.user;
     next();
 });
