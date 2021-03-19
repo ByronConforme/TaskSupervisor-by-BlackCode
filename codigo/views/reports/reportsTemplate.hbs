@@ -1,8 +1,11 @@
-<div>
-    <table border="1">
-        <tr>
-            <th colspan="9">Reporte de tareas por usuario</th>
-        </tr>
+<div class="container">
+        <div class ="jumbotron">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h5 class="card-title">Reporte de tareas por usuario</h5>
+                </div>
+                <div class="card-body">
+    <table class="table">
         <tr>
             <th>Usuario</th>
             <th>{{header.nombre}}  {{header.apellido}}</th>
@@ -26,18 +29,19 @@
             <th>Comentario</th>
         </tr>
         {{#each tareas}}
+            <tbody>
             <tr>
                 <td>
-                    <h4>{{id}}</h4>
+                    <h4>{{id}}
                 </td>
                 <td>
-                    <h4>{{fecha_hora}}</h4>
+                    <h4>{{fecha_hora}}
                 </td>
                 <td>
-                    <h4>{{titulo}}</h4>
+                    <h4>{{titulo}}
                 </td>
                 <td>
-                    <h4>{{descripcion}}</h4>
+                    <h4>{{descripcion}}
                 </td>
                 <td>
                     <h4>{{tiempo_tarea}}</h4>
@@ -55,6 +59,10 @@
                     <h4>{{comentario}}</h4>
                 </td>
             </tr>
+            </tbody>
         {{/each}}
     </table>
+</div>
+</div>
+</div>
 </div>
