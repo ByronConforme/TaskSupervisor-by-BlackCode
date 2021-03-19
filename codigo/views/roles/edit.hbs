@@ -1,27 +1,22 @@
-<div>
-    <div>
-        <div>
-            <div>
-                <form action="/roles/edit/{{rol.id}}" method="POST">
+<form action="/roles/edit/{{rol.id}}" method="POST" class="form-register">
+                    <h2 class="formtitulo">Ingrese sus nuevos datos</h2>
+                    <div class="contenedor1-inputs">
                     <div>
                         Nombre:
                     </div>
                     <div>
-                        <input type="text" value="{{rol.nombre}}" name="nombre" placeholder="Nombre" autofocus>
+                        <input type="text1" value="{{rol.nombre}}" name="nombre" placeholder="Nombre" class="input-100" autofocus>
                     </div>
                     <div>
                         Nivel:
                     </div>
                     <div>
-                        <input type="number" value="{{rol.nivel}}" name="nivel" placeholder="Nivel">
+                        <input type="number" value="{{rol.nivel}}" name="nivel" placeholder="Nivel" class="input-100">
                     </div>
                     <div>
                         <button>
                             Guardar
                         </button>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>  
+                    </div>
+</form>
